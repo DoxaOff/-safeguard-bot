@@ -1,13 +1,13 @@
-import discord
+import nextcord
 import json
 import re
 import os
 
-intents = discord.Intents.default()
+intents = nextcord.Intents.default()
 intents.message_content = True
 intents.members = True
 
-client = discord.Client(intents=intents)
+client = nextcord.Client(intents=intents)
 
 def load_config():
     with open("words.json", "r", encoding="utf-8") as f:
@@ -34,9 +34,9 @@ async def on_message(message):
 
     config = load_config()
     trigger_words = config.get("trigger_words", [])
-    excluded_channels = config.get("excluded_channels", [])
+    excluded_categories = config.get("excluded_categories", [])
 
-    if message.channel.id in excluded_channels:
+    if message.channel.category_id in excluded_categories:
         return
 
     triggered_word = find_trigger_word(message.content, trigger_words)
@@ -58,17 +58,17 @@ Ceci n'est pas un avertissement (warn). Ton compte n'est pas pénalisé. C'est u
 - Pour t'encourager à utiliser `||des spoilers||` sur les sujets sensibles.
 - Pour garder cet espace sûr et accueillant pour tout le monde."""
 
-        view = discord.ui.View()
-        button = discord.ui.Button(
+        view = nextcord.ui.View()
+        button = nextcord.ui.Button(
             label="Consulter ton message",
             url=message_link,
-            style=discord.ButtonStyle.link
+            style=nextcord.ButtonStyle.link
         )
         view.add_item(button)
 
         try:
             await message.author.send(dm_message, view=view)
-        except discord.Forbidden:
-            pass  # La personne a les DMs fermés
+        except nextcord.Forbidden:
+            pass
 
 client.run(os.environ["DISCORD_TOKEN"])
