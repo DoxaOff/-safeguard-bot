@@ -1,0 +1,9 @@
+{
+  "trigger_words": [
+    "manger", "nourriture", "grossir", "maigrir", "calories", "régime",
+    "mourir", "suicide", "suicider", "me tuer", "automutilation",
+    "scarification", "se couper", "maladie", "dépression", "rechute",
+    "purger", "vomir", "laxatif", "jeûner", "peser"
+  ],
+  "excluded_channels": []
+}
