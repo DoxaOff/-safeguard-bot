@@ -1,0 +1,21 @@
+{
+    "trigger_words": [
+        "cigarette"
+    ],
+    "included_categories": [
+        1347706150618923022,
+        1347706151369969836
+    ],
+    "salons_exclus": [],
+    "salons_confessions": [
+        1347706151499989086
+    ],
+    "salons_suggestion": [],
+    "salons_fil": {},
+    "salon_logs_id": 1519135482452250715,
+    "stats": {
+        "333584043428020224": {
+            "cigarette": 3
+        }
+    }
+}
